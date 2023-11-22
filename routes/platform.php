@@ -18,6 +18,7 @@ use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\TaskScreen;
+use App\Orchid\Screens\DiscountScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -104,6 +105,10 @@ Route::screen('/examples/cards', ExampleCardsScreen::class)->name('platform.exam
 
 Route::screen('task', TaskScreen::class)->name('platform.task')->breadcrumbs(function (Trail $trail) {
     return $trail->parent('platform.index')->push('Task');
+});
+
+Route::screen('discount', DiscountScreen::class)->name('platform.discount')->breadcrumbs(function (Trail $trail) {
+    return $trail->parent('platform.index')->push('Discount');
 });
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');

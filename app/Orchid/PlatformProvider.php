@@ -80,7 +80,11 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make(__('Tasks'))
                 ->icon('bs.list-task')
-                ->route('platform.task')
+                ->route('platform.task'),
+
+            Menu::make(__('Discounts'))
+                ->icon('bs.percent')
+                ->route('platform.discount')
                 ->divider(),
 
             Menu::make('Documentation')

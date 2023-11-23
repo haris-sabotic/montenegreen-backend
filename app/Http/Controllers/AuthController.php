@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Validator;
 
 class AuthController extends Controller
 {
@@ -22,8 +21,9 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'email' => 'required|string|unique:users',
+            'email' => 'required|string|email|unique:users',
             'password' => 'required|string',
+            'confirm_password' => 'required|same:password',
         ]);
 
         $user = new User([

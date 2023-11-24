@@ -87,6 +87,16 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.discount')
                 ->divider(),
 
+            Menu::make(__('Mark task as completed'))
+                ->title('User actions')
+                ->icon('bs.list-task')
+                ->route('platform.user-tasks'),
+
+            Menu::make(__('Add points'))
+                ->icon('bs.currency-dollar')
+                ->route('platform.user-points')
+                ->divider(),
+
             Menu::make('Documentation')
                 ->title('Docs')
                 ->icon('bs.box-arrow-up-right')

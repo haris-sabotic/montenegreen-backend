@@ -19,6 +19,8 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\TaskScreen;
 use App\Orchid\Screens\DiscountScreen;
+use App\Orchid\Screens\UserActionsTasksScreen;
+use App\Orchid\Screens\UserActionsPointsScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -109,6 +111,14 @@ Route::screen('task', TaskScreen::class)->name('platform.task')->breadcrumbs(fun
 
 Route::screen('discount', DiscountScreen::class)->name('platform.discount')->breadcrumbs(function (Trail $trail) {
     return $trail->parent('platform.index')->push('Discount');
+});
+
+Route::screen('user-tasks', UserActionsTasksScreen::class)->name('platform.user-tasks')->breadcrumbs(function (Trail $trail) {
+    return $trail->parent('platform.index')->push('Mark task as completed by user');
+});
+
+Route::screen('user-points', UserActionsPointsScreen::class)->name('platform.user-points')->breadcrumbs(function (Trail $trail) {
+    return $trail->parent('platform.index')->push('Add points to user');
 });
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');

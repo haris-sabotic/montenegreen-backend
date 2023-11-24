@@ -14,6 +14,7 @@ class TaskController extends Controller
 
     public function userTasks(Request $request)
     {
-        return Task::all();
+
+        return $request->user()->tasks()->get();
     }
 }

@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\DiscountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +24,10 @@ Route::group(['prefix' => 'auth'], function () {
     Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::get('logout', [AuthController::class, 'logout']);
         Route::get('user', [AuthController::class, 'user']);
+
+        Route::get('tasks', [TaskController::class, 'userTasks']);
     });
 });
+
+Route::get('tasks', [TaskController::class, 'index']);
+Route::get('discounts', [DiscountController::class, 'index']);

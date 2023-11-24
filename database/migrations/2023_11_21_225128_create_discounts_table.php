@@ -17,6 +17,7 @@ return new class extends Migration
             $table->longText('description');
             $table->string('location');
             $table->string('photo');
+            $table->integer('points')->default(0);
             $table->timestamps();
         });
     }

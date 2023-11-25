@@ -70,6 +70,7 @@ class DiscountScreen extends Screen
                         return $description;
                     }),
                 TD::make('location')->sort(),
+                TD::make('points')->sort(),
                 TD::make('photo')
                     ->render(function (Discount $discount) {
                         $url = url('storage/' . $discount->photo);
@@ -103,6 +104,12 @@ class DiscountScreen extends Screen
                     ->placeholder('Enter discount location')
                     ->help('The location of the discount to be created.'),
 
+                Input::make('discount.points')
+                    ->type('number')
+                    ->title('Points')
+                    ->placeholder('Enter discount points')
+                    ->help('The number of points required for the discount.'),
+
                 Upload::make('discount.photo')
                     ->acceptedFiles('image/*')
                     ->maxFiles(1)
@@ -126,6 +133,7 @@ class DiscountScreen extends Screen
             'discount.name' => 'required',
             'discount.description' => 'required',
             'discount.location' => 'required',
+            'discount.points' => 'required',
             'discount.photo' => 'required',
         ]);
 
@@ -135,6 +143,7 @@ class DiscountScreen extends Screen
         $discount->name = $request->input('discount.name');
         $discount->description = $request->input('discount.description');
         $discount->location = $request->input('discount.location');
+        $discount->points = $request->input('discount.points');
         $discount->photo = $attachment->path . $attachment->name . '.' . $attachment->extension;
         $discount->save();
     }

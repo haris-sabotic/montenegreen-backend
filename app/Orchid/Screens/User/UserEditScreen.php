@@ -172,6 +172,9 @@ class UserEditScreen extends Screen
             ->fill(['permissions' => $permissions])
             ->save();
 
+        $user->points = $request->input('user.points');
+        $user->save();
+
         $user->replaceRoles($request->input('user.roles'));
 
         Toast::info(__('User was saved.'));

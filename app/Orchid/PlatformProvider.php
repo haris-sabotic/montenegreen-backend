@@ -58,7 +58,7 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make(__('Mark task as completed'))
                 ->title('User actions')
-                ->icon('bs.list-task')
+                ->icon('bs.check')
                 ->route('platform.user-tasks'),
 
             Menu::make(__('Add points'))

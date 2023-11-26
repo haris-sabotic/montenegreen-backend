@@ -53,7 +53,11 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make(__('Discounts'))
                 ->icon('bs.percent')
-                ->route('platform.discount')
+                ->route('platform.discount'),
+
+            Menu::make(__('Blog posts'))
+                ->icon('bs.file-post')
+                ->route('platform.blogpost')
                 ->divider(),
 
             Menu::make(__('Mark task as completed'))

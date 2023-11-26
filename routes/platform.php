@@ -19,6 +19,7 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\TaskScreen;
 use App\Orchid\Screens\DiscountScreen;
+use App\Orchid\Screens\BlogpostScreen;
 use App\Orchid\Screens\UserActionsTasksScreen;
 use App\Orchid\Screens\UserActionsPointsScreen;
 use Illuminate\Support\Facades\Route;
@@ -111,6 +112,10 @@ Route::screen('task', TaskScreen::class)->name('platform.task')->breadcrumbs(fun
 
 Route::screen('discount', DiscountScreen::class)->name('platform.discount')->breadcrumbs(function (Trail $trail) {
     return $trail->parent('platform.index')->push('Discount');
+});
+
+Route::screen('blogpost', BlogpostScreen::class)->name('platform.blogpost')->breadcrumbs(function (Trail $trail) {
+    return $trail->parent('platform.index')->push('Blog post');
 });
 
 Route::screen('user-tasks', UserActionsTasksScreen::class)->name('platform.user-tasks')->breadcrumbs(function (Trail $trail) {
